@@ -32,17 +32,6 @@ export const metadata: Metadata = {
     description: "Elena's portfolio, a Front-end Developer based in Paris, France.",
     images: ["https://www.elenaferreira.fr/images/website.png"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
 };
 
 export default async function RootLayout({
