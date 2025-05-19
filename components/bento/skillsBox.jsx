@@ -74,7 +74,7 @@ export const SkillsBox = () => {
         </Marquee>
       </div>
       <div className="mb-4">
-        <p className="text-sm text-subtitle">{banner_T("stack")}</p>
+        <h3 className="text-sm text-subtitle">{banner_T("stack")}</h3>
         <h2 className="text-2xl font-bold mb-1 text-title">{banner_T("tech")}</h2>
       </div>
     </BentoBox>

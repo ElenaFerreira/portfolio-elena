@@ -30,8 +30,8 @@ export const ProfileBox = () => {
         </div>
 
         <div>
-          <h2 className="text-3xl font-bold mb-1 text-title">Elena Ferreira</h2>
-          <p className="text-lg text-subtitle">{profile_T("job")}</p>
+          <h1 className="text-3xl font-bold mb-1 text-title">Elena Ferreira</h1>
+          <h2 className="text-lg text-subtitle">{profile_T("job")}</h2>
         </div>
       </div>
 

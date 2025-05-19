@@ -11,7 +11,7 @@ export const ResumeBox = () => {
     <BentoBox className="flex flex-col justify-center p-5 md:col-span-3 row-span-1 md:col-start-10 row-start-7 md:row-start-2">
       <div className="flex justify-between items-center">
         <div className="mr-4">
-          <p className="text-sm text-subtitle uppercase">{resume_T("date")}</p>
+          <h3 className="text-sm text-subtitle uppercase">{resume_T("date")}</h3>
           <h2 className="text-2xl font-bold mb-1 text-title uppercase">{resume_T("resume")}</h2>
         </div>
 

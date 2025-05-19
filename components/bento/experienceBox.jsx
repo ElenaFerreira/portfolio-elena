@@ -14,7 +14,7 @@ export const ExperienceBox = () => {
       `}
     >
       <div className="mb-4">
-        <p className="text-sm text-subtitle">{experience_T("years")}</p>
+        <h3 className="text-sm text-subtitle">{experience_T("years")}</h3>
         <h2 className="text-2xl font-bold mb-1 text-title">{experience_T("experience")}</h2>
       </div>
       <div className="relative">
