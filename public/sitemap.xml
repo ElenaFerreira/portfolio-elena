@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
   <url>
     <loc>https://www.elenaferreira.fr/</loc>
-    <lastmod>2025-05-01</lastmod>
-    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.elenaferreira.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.elenaferreira.fr/fr/"/>
     <priority>1.0</priority>
+    <lastmod>2025-04-28</lastmod>
   </url>
+  
+  <!-- === EN === -->
   <url>
-    <loc>https://www.elenaferreira.fr/fr</loc>
-    <lastmod>2025-05-01</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.elenaferreira.fr/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.elenaferreira.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.elenaferreira.fr/fr/"/>
     <priority>0.9</priority>
+    <lastmod>2025-04-28</lastmod>
   </url>
+  
+  <!-- === FR === -->
   <url>
-    <loc>https://www.elenaferreira.fr/en</loc>
-    <lastmod>2025-05-01</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.elenaferreira.fr/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.elenaferreira.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.elenaferreira.fr/fr/"/>
     <priority>0.9</priority>
+    <lastmod>2025-04-28</lastmod>
   </url>
-</urlset> 
+</urlset>
