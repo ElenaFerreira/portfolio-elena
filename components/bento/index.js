@@ -17,3 +17,4 @@ export { WaveChatBox } from "./project/waveChatBox";
 export { PeppersoftBox } from "./project/peppersoftBox";
 export { EuresisBox } from "./project/euresisBox";
 export { RePairBox } from "./project/rePairBox";
+export { PetitGourmandBox } from "./project/PetitGourmandBox";

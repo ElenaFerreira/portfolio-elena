@@ -40,6 +40,7 @@ export default {
     project5: "Plateforme en SaaS Peppersoft",
     project6: "Site web Euresis",
     project7: "PWA pour Refashion",
+    project8: "Site web Le Petit Gourmand",
     badge: "Nouveau",
     cursor: "Bientôt disponible",
   },
