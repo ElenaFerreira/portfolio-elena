@@ -34,7 +34,7 @@ export const PetitGourmandBox = () => {
           <div className="flex items-center">
             <p className="text-sm text-subtitle uppercase">{project_T("project_for")}</p>
             <div className="relative size-5 mx-1">
-              <Image src="/images/project/petitgourmand.png" alt="Euresis Logo" fill className="object-contain" />
+              <Image src="/images/project/petitGourmand.png" alt="Euresis Logo" fill className="object-contain" />
             </div>
             <p className="text-sm text-subtitle uppercase">Le Petit Gourmand</p>
           </div>
