@@ -1,46 +1,46 @@
 "use client";
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import { createContext, useCallback, useContext, useMemo, useSyncExternalStore, ReactNode } from "react";
+import { DEFAULT_THEME, setThemeCookie, type Theme } from "./theme-cookie";
 
 interface ThemeContextType {
-  theme: string;
+  theme: Theme;
   toggleTheme: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-const getInitialTheme = (): string => {
-  if (typeof window !== "undefined") {
-    return localStorage.getItem("theme") || "dark";
-  }
-  return "dark";
-};
+const listeners = new Set<() => void>();
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<string>(getInitialTheme);
-  const [hydrated, setHydrated] = useState<boolean>(false);
+function subscribe(onStoreChange: () => void) {
+  listeners.add(onStoreChange);
+  return () => {
+    listeners.delete(onStoreChange);
+  };
+}
 
-  useEffect(() => {
-    setHydrated(true);
+function readTheme(): Theme {
+  return document.documentElement.getAttribute("data-theme") === "light" ? "light" : DEFAULT_THEME;
+}
+
+function writeTheme(theme: Theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  setThemeCookie(theme);
+  listeners.forEach((listener) => listener());
+}
+
+export const ThemeProvider = ({ initialTheme, children }: { initialTheme: Theme; children: ReactNode }) => {
+  // initialTheme doit servir de snapshot serveur, sinon les composants qui
+  // dépendent du thème rendent la mauvaise variante avant hydratation.
+  const getServerSnapshot = useCallback(() => initialTheme, [initialTheme]);
+  const theme = useSyncExternalStore(subscribe, readTheme, getServerSnapshot);
+
+  const toggleTheme = useCallback(() => {
+    writeTheme(readTheme() === "dark" ? "light" : "dark");
   }, []);
 
-  useEffect(() => {
-    if (hydrated) {
-      document.documentElement.setAttribute("data-theme", theme);
-      localStorage.setItem("theme", theme);
-    }
-  }, [theme, hydrated]);
+  const value = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => {
-      const newTheme = prevTheme === "dark" ? "light" : "dark";
-      localStorage.setItem("theme", newTheme);
-      return newTheme;
-    });
-  };
-
-  if (!hydrated) return null;
-
-  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
+  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 };
 
 export const useTheme = () => {

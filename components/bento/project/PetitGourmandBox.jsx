@@ -2,7 +2,7 @@ import React from "react";
 import BentoBox from "../../bentoBox";
 import { LinkIcon } from "@heroicons/react/24/outline";
 import { useScopedI18n } from "@/locales/client";
-import { useTab } from "@/providers/tabContext";
+import { useTab, tabFadeClasses, TAB_WORK } from "@/providers/tabContext";
 import NewBadge from "@/components/NewBadge";
 import Image from "next/image";
 
@@ -13,7 +13,7 @@ export const PetitGourmandBox = () => {
   return (
     <BentoBox
       className={`relative flex flex-col justify-center p-5 h-full
-        ${activeTabIndex === 1 ? "opacity-40 pointer-events-none" : activeTabIndex === 2 ? "" : ""}
+        ${tabFadeClasses(activeTabIndex, [TAB_WORK])}
       `}
     >
       <div className="mb-4">
@@ -34,7 +34,7 @@ export const PetitGourmandBox = () => {
           <div className="flex items-center">
             <p className="text-sm text-subtitle uppercase">{project_T("project_for")}</p>
             <div className="relative size-5 mx-1">
-              <Image src="/images/project/petitGourmand.png" alt="Euresis Logo" fill className="object-contain" />
+              <Image src="/images/project/petitGourmand.png" alt="Petit Gourmand logo" fill sizes="20px" className="object-contain" />
             </div>
             <p className="text-sm text-subtitle uppercase">Le Petit Gourmand</p>
           </div>

@@ -2,7 +2,7 @@ import React from "react";
 import BentoBox from "../../bentoBox";
 import { LinkIcon } from "@heroicons/react/24/outline";
 import { useScopedI18n } from "@/locales/client";
-import { useTab } from "@/providers/tabContext";
+import { useTab, tabFadeClasses, TAB_WORK } from "@/providers/tabContext";
 import Image from "next/image";
 
 export const PeppersoftBox = () => {
@@ -12,7 +12,7 @@ export const PeppersoftBox = () => {
   return (
     <BentoBox
       className={`flex flex-col justify-center p-5 h-full
-        ${activeTabIndex === 1 ? "opacity-40 pointer-events-none" : activeTabIndex === 2 ? "" : ""}
+        ${tabFadeClasses(activeTabIndex, [TAB_WORK])}
       `}
     >
       <div className="mb-4">
@@ -32,7 +32,7 @@ export const PeppersoftBox = () => {
         <div className="flex items-center mb-2">
           <p className="text-sm text-subtitle uppercase">{project_T("project_at")}</p>
           <div className="relative size-5 mx-1">
-            <Image src="/images/project/marquetis.png" alt="Grafikmente Logo" fill className="object-contain" />
+            <Image src="/images/project/marquetis.png" alt="Marquetis & Co logo" fill sizes="20px" className="object-contain" />
           </div>
           <p className="text-sm text-subtitle uppercase">MARQUETIS & CO</p>
         </div>

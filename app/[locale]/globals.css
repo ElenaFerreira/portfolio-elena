@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@custom-variant dark (&: is(.dark *));
-
 @theme inline {
   --color-background: var(--background);
   --color-background-body-1: var(--background-body1);
@@ -183,4 +181,14 @@ body {
 .timeline {
   background: rgb(red, green, blue);
   background-image: var(--timeline);
+}
+
+/* MOUVEMENT RÉDUIT
+   Seules les animations en boucle sont coupées ; les transitions au survol sont
+   conservées. Le marquee et les particules passent par usePrefersReducedMotion. */
+@media (prefers-reduced-motion: reduce) {
+  .animation-pulser,
+  .animation-pulser-new-badge {
+    animation: none;
+  }
 }

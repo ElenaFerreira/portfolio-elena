@@ -1,7 +1,7 @@
 import React from "react";
 import BentoBox from "../bentoBox";
 import { useScopedI18n } from "@/locales/client";
-import { useTab } from "@/providers/tabContext";
+import { useTab, tabFadeClasses, TAB_WORK } from "@/providers/tabContext";
 
 export const ExperienceBox = () => {
   const experience_T = useScopedI18n("experience");
@@ -10,7 +10,7 @@ export const ExperienceBox = () => {
   return (
     <BentoBox
       className={`flex flex-col justify-center p-6 md:col-span-6 row-span-6 md:col-start-7 row-start-22 md:row-start-4 h-full
-        ${activeTabIndex === 1 ? "opacity-40 pointer-events-none" : activeTabIndex === 2 ? "" : ""}
+        ${tabFadeClasses(activeTabIndex, [TAB_WORK])}
       `}
     >
       <div className="mb-4">

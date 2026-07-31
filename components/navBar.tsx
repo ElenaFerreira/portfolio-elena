@@ -6,8 +6,6 @@ import { useScopedI18n } from "@/locales/client";
 import { useTab } from "@/providers/tabContext";
 
 export default function NavBar() {
-  // Espace commentaire pour Loris esclave qui m'aide
-
   const menu_T = useScopedI18n("menu");
   const menuItems = [menu_T("all"), menu_T("about"), menu_T("work")];
   const { activeTabIndex, setActiveTabIndex } = useTab();

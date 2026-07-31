@@ -14,7 +14,7 @@ export default {
   },
 
   resume: {
-    date: "2025 CV",
+    date: "2026 CV",
     resume: "Resume",
   },
 
@@ -54,5 +54,11 @@ export default {
   languages: {
     fr: "French",
     en: "English",
+  },
+
+  metadata: {
+    title: "Elena Ferreira - Portfolio",
+    description: "Elena's portfolio, a Front-end Developer based in Paris, France.",
+    imageAlt: "Elena Ferreira - Portfolio",
   },
 };

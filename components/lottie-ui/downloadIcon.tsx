@@ -1,58 +1,21 @@
-import { useEffect, useRef, useCallback } from "react";
+"use client";
+
 import { useTheme } from "@/providers/theme-provider";
-import InboxDownAnimation from "../../public/lottie/inbox-down/InboxDown.json";
-import InboxDownLightAnimation from "../../public/lottie/inbox-down/InboxDownLight.json";
+import { useLottieIcon } from "./useLottieIcon";
+import InboxDownAnimation from "./animations/inbox-down/InboxDown.json";
+import InboxDownLightAnimation from "./animations/inbox-down/InboxDownLight.json";
 
 const DownloadIcon = () => {
   const { theme } = useTheme();
   const isLightMode = theme === "light";
-  const downloadContainer = useRef<HTMLDivElement | null>(null);
-
-  const getLottie = useCallback(async () => {
-    const lot = await import("lottie-web");
-
-    if (!downloadContainer.current) return;
-    lot.default.loadAnimation({
-      name: "DownloadIcon",
-      renderer: "svg",
-      loop: false,
-      autoplay: false,
-      animationData: isLightMode ? InboxDownAnimation : InboxDownLightAnimation,
-      container: downloadContainer.current,
-      rendererSettings: {
-        preserveAspectRatio: "xMinYMin slice",
-      },
-    });
-  }, [isLightMode]);
-
-  const destroyLottie = useCallback(async () => {
-    const lot = await import("lottie-web");
-    lot.default.destroy("DownloadIcon");
-  }, []);
-
-  useEffect(() => {
-    getLottie();
-    return () => {
-      destroyLottie();
-    };
-  }, [getLottie, destroyLottie]);
-
-  const lottieHover = async () => {
-    const lot = await import("lottie-web");
-    lot.default.play("DownloadIcon");
-  };
-
-  const lottieLeave = async () => {
-    const lot = await import("lottie-web");
-    lot.default.stop("DownloadIcon");
-  };
+  const { containerRef, onMouseEnter, onMouseLeave } = useLottieIcon(isLightMode ? InboxDownAnimation : InboxDownLightAnimation);
 
   return (
-    <a href="images/CV_Elena_FERREIRA.pdf" download className="relative z-10">
+    <a href="/images/CV_Elena_FERREIRA.pdf" download className="relative z-10">
       <div
-        ref={downloadContainer}
-        onMouseEnter={lottieHover}
-        onMouseLeave={lottieLeave}
+        ref={containerRef}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
         className="size-10 opacity-50 hover:opacity-100 transition-opacity"
       />
     </a>

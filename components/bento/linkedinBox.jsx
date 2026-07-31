@@ -1,19 +1,13 @@
 import React from "react";
 import BentoBox from "../bentoBox";
-import { useTab } from "@/providers/tabContext";
+import { useTab, tabFadeClasses, TAB_ABOUT } from "@/providers/tabContext";
 
 export const LinkedinBox = () => {
   const { activeTabIndex } = useTab();
   return (
     <BentoBox
-      className={`md:col-span-2 row-span-2 row-start-10 hover:shadow-lg hover:scale-[1.02] cursor-pointer transition-all duration-300 ease-out 
-    ${
-      activeTabIndex === 1
-        ? "md:col-start-1 md:row-start-4"
-        : activeTabIndex === 2
-        ? "opacity-40 pointer-events-none md:col-start-1 md:row-start-4"
-        : "md:col-start-1 md:row-start-4"
-    }
+      className={`md:col-span-2 row-span-2 row-start-10 md:col-start-1 md:row-start-4 hover:shadow-lg hover:scale-[1.02] cursor-pointer transition-all duration-300 ease-out
+    ${tabFadeClasses(activeTabIndex, [TAB_ABOUT])}
     `}
     >
       <a href="https://www.linkedin.com/in/ferreira-elena/" target="_blank" className="group flex flex-col justify-center p-5 h-full w-full">

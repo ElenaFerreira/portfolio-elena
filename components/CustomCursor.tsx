@@ -1,23 +1,37 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useScopedI18n } from "@/locales/client";
 
 const CustomCursor = () => {
   const project_T = useScopedI18n("project");
 
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const [showMessage, setShowMessage] = useState(false);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+    let frame = 0;
+    let x = 0;
+    let y = 0;
+
+    const handleMouseMove = (event: MouseEvent) => {
+      x = event.clientX;
+      y = event.clientY;
+      // Écriture directe dans le style : un state React relancerait un rendu à
+      // chaque pixel parcouru.
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        if (wrapperRef.current) {
+          wrapperRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        }
+      });
     };
 
     const handleMouseEnter = () => setShowMessage(true);
     const handleMouseLeave = () => setShowMessage(false);
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
     const elements = document.querySelectorAll(".cursor-tooltip");
     elements.forEach((el) => {
@@ -26,6 +40,7 @@ const CustomCursor = () => {
     });
 
     return () => {
+      if (frame) cancelAnimationFrame(frame);
       window.removeEventListener("mousemove", handleMouseMove);
       elements.forEach((el) => {
         el.removeEventListener("mouseenter", handleMouseEnter);
@@ -35,10 +50,7 @@ const CustomCursor = () => {
   }, []);
 
   return (
-    <div
-      className="fixed top-5 left-0 pointer-events-none z-[9999] transition-transform duration-30"
-      style={{ transform: `translate3d(${position.x}px, ${position.y}px, 0)` }}
-    >
+    <div ref={wrapperRef} className="fixed top-5 left-0 pointer-events-none z-[9999] transition-transform duration-30">
       {showMessage && <div className="px-2 py-1 text-xs font-medium bg-black text-white rounded shadow-lg">{project_T("cursor")}</div>}
     </div>
   );

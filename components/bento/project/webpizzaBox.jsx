@@ -2,7 +2,7 @@ import React from "react";
 import BentoBox from "../../bentoBox";
 import { FolderIcon } from "@heroicons/react/24/outline";
 import { useScopedI18n } from "@/locales/client";
-import { useTab } from "@/providers/tabContext";
+import { useTab, tabFadeClasses, TAB_WORK } from "@/providers/tabContext";
 import Image from "next/image";
 
 export const WebpizzaBox = () => {
@@ -12,7 +12,7 @@ export const WebpizzaBox = () => {
   return (
     <BentoBox
       className={`flex flex-col justify-center p-5 h-full
-        ${activeTabIndex === 1 ? "opacity-40 pointer-events-none" : activeTabIndex === 2 ? "" : ""}
+        ${tabFadeClasses(activeTabIndex, [TAB_WORK])}
       `}
     >
       <div className="mb-4">

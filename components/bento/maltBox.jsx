@@ -1,6 +1,6 @@
 import React from "react";
 import BentoBox from "../bentoBox";
-import { useTab } from "@/providers/tabContext";
+import { useTab, tabFadeClasses, TAB_ABOUT } from "@/providers/tabContext";
 
 export const MaltBox = () => {
   const { activeTabIndex } = useTab();
@@ -8,7 +8,7 @@ export const MaltBox = () => {
   return (
     <BentoBox
       className={`md:col-span-2 row-span-2 md:col-start-1 row-start-14 md:row-start-8 hover:shadow-lg hover:scale-[1.02] cursor-pointer transition-all duration-300 ease-out
-         ${activeTabIndex === 1 ? "" : activeTabIndex === 2 ? "opacity-40 pointer-events-none" : ""}
+         ${tabFadeClasses(activeTabIndex, [TAB_ABOUT])}
         `}
     >
       <a href="https://www.malt.fr/profile/elenaferreira" target="_blank" className="group flex flex-col justify-center p-5 h-full w-full">

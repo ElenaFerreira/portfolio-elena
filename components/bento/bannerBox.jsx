@@ -3,7 +3,7 @@ import BentoBox from "../bentoBox";
 import { StarIcon } from "@heroicons/react/24/outline";
 import { useScopedI18n } from "@/locales/client";
 import Marquee from "react-fast-marquee";
-import { useTab } from "@/providers/tabContext";
+import { useTab, tabFadeClasses } from "@/providers/tabContext";
 
 export const BannerBox = () => {
   const banner_T = useScopedI18n("banner");
@@ -12,7 +12,7 @@ export const BannerBox = () => {
   return (
     <BentoBox
       className={`relative overflow-hidden py-5 md:col-span-6 row-span-1 md:col-start-7 row-start-4 md:row-start-1 group
-        ${activeTabIndex === 1 ? "opacity-40 pointer-events-none" : activeTabIndex === 2 ? "opacity-40 pointer-events-none" : ""}`}
+        ${tabFadeClasses(activeTabIndex, [])}`}
     >
       <div className="relative after:w-[calc(100%+32px)] after:h-full after:absolute after:top-0 after:-left-4">
         <Marquee

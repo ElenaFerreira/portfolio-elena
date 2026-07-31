@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import BentoBox from "../bentoBox";
 import { useScopedI18n } from "@/locales/client";
-import { useTab } from "@/providers/tabContext";
+import { useTab, tabFadeClasses, TAB_ABOUT } from "@/providers/tabContext";
 
 export const ProfileBox = () => {
   const profile_T = useScopedI18n("profile");
@@ -11,7 +11,7 @@ export const ProfileBox = () => {
   return (
     <BentoBox
       className={`flex flex-col justify-center p-5 md:col-span-6 row-span-3 md:col-start-1 row-start-1 h-full 
-        ${activeTabIndex === 1 ? "" : activeTabIndex === 2 ? "opacity-40 pointer-events-none" : ""}`}
+        ${tabFadeClasses(activeTabIndex, [TAB_ABOUT])}`}
     >
       <div className="flex items-center mb-4">
         <div className="relative size-24 flex items-center justify-center mr-6">

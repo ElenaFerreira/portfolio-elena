@@ -1,60 +1,24 @@
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
 import { useTheme } from "@/providers/theme-provider";
-import EyeAnimation from "../../public/lottie/eye/Eye.json";
-import EyeLightAnimation from "../../public/lottie/eye/EyeLight.json";
+import { useLottieIcon } from "./useLottieIcon";
+// Cette paire est nommée à l'inverse des autres icônes : Eye.json est la
+// variante blanche et EyeLight.json la noire. Le ternaire ci-dessous est donc
+// bien inversé par rapport à sunIcon / moonIcon / downloadIcon.
+import EyeAnimation from "./animations/eye/Eye.json";
+import EyeLightAnimation from "./animations/eye/EyeLight.json";
 
 const EyeIcon = () => {
   const { theme } = useTheme();
   const isLightMode = theme === "light";
-  const sendIconContainer = useRef<HTMLDivElement | null>(null);
-
-  const getLottie = useCallback(async () => {
-    const lot = await import("lottie-web");
-
-    if (!sendIconContainer.current) return;
-    lot.default.loadAnimation({
-      name: "SendIcon",
-      renderer: "svg",
-      loop: false,
-      autoplay: false,
-      animationData: isLightMode ? EyeLightAnimation : EyeAnimation,
-      container: sendIconContainer.current,
-      rendererSettings: {
-        preserveAspectRatio: "xMinYMin slice",
-      },
-    });
-  }, [isLightMode]);
-
-  const destroyLottie = useCallback(async () => {
-    const lot = await import("lottie-web");
-    lot.default.destroy("SendIcon");
-  }, []);
-
-  useEffect(() => {
-    getLottie();
-    return () => {
-      destroyLottie();
-    };
-  }, [getLottie, destroyLottie]);
-
-  const lottieHover = async () => {
-    const lot = await import("lottie-web");
-    lot.default.play("SendIcon");
-  };
-
-  const lottieLeave = async () => {
-    const lot = await import("lottie-web");
-    lot.default.stop("SendIcon");
-  };
+  const { containerRef, onMouseEnter, onMouseLeave } = useLottieIcon(isLightMode ? EyeLightAnimation : EyeAnimation);
 
   return (
-    <a href="images/CV_Elena_FERREIRA.pdf" target="_blank" className="relative z-10">
+    <a href="/images/CV_Elena_FERREIRA.pdf" target="_blank" className="relative z-10">
       <div
-        ref={sendIconContainer}
-        onMouseEnter={lottieHover}
-        onMouseLeave={lottieLeave}
+        ref={containerRef}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
         className="size-10 opacity-50 hover:opacity-100 transition-opacity"
       />
     </a>

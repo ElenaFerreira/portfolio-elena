@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useEffect } from "react";
 import NavBar from "@/components/navBar";
 import {
   ProfileBox,
@@ -36,17 +35,6 @@ const projects = [
 ];
 
 export default function Home() {
-  useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, []);
-
   return (
     <div className="relative z-10 min-h-screen flex flex-col w-full justify-start items-center">
       <NavBar />

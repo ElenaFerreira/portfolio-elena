@@ -6,7 +6,7 @@ const I18nMiddleware = createI18nMiddleware({
   defaultLocale: "en",
 });
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   if (request.nextUrl.pathname === "/") {
     return NextResponse.redirect(new URL("/en", request.url));
   }
