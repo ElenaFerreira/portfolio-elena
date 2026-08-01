@@ -5,7 +5,6 @@ import BentoBox from "../../bentoBox";
 import { LinkIcon } from "@heroicons/react/24/outline";
 import { useScopedI18n } from "@/locales/client";
 import { useTab, tabFadeClasses, TAB_WORK } from "@/providers/tabContext";
-import NewBadge from "@/components/NewBadge";
 import Image from "next/image";
 
 export const RePairBox = () => {
@@ -39,7 +38,6 @@ export const RePairBox = () => {
               <Image src="/images/project/refashion.svg" alt="Refashion logo" fill className="object-contain" />
             </div>
           </div>
-          <NewBadge />
         </div>
 
         <div className="flex items-center">

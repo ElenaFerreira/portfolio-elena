@@ -5,7 +5,6 @@ import BentoBox from "../../bentoBox";
 import { LinkIcon } from "@heroicons/react/24/outline";
 import { useScopedI18n } from "@/locales/client";
 import { useTab, tabFadeClasses, TAB_WORK } from "@/providers/tabContext";
-import NewBadge from "@/components/NewBadge";
 import Image from "next/image";
 
 export const EuresisBox = () => {
@@ -40,8 +39,6 @@ export const EuresisBox = () => {
             </div>
             <p className="text-sm text-subtitle uppercase">EURESIS</p>
           </div>
-
-          <NewBadge />
         </div>
 
         <div className="flex items-center">

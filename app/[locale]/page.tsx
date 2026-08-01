@@ -19,9 +19,11 @@ import {
   EuresisBox,
   RePairBox,
   PetitGourmandBox,
+  TitouanBox,
 } from "@/components/bento";
 
 const projects = [
+  <TitouanBox key="titouan" />,
   <PetitGourmandBox key="petitgourmand" />,
   <EuresisBox key="euresis" />,
   <RePairBox key="repair" />,

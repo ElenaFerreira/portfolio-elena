@@ -18,3 +18,4 @@ export { PeppersoftBox } from "./project/peppersoftBox";
 export { EuresisBox } from "./project/euresisBox";
 export { RePairBox } from "./project/rePairBox";
 export { PetitGourmandBox } from "./project/PetitGourmandBox";
+export { TitouanBox } from "./project/titouanBox";

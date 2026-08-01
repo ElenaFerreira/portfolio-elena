@@ -3,7 +3,7 @@ const en = {
   profile: {
     job: "Front-End Developer",
     about:
-      "Passionate about web development and creating modern user interfaces. Always seeking new technical challenges. Looking for an apprenticeship.",
+      "Passionate about web development and creating modern user interfaces. Always seeking new technical challenges.",
   },
 
   banner: {
@@ -19,16 +19,16 @@ const en = {
   },
 
   experience: {
-    years: "2 YEARS OF",
+    years: "3 YEARS OF",
     experience: "EXPERIENCE",
-    exp1: "Web Developer",
-    exp2: "Full-Stack Developer",
-    exp3: "Wordpress Development",
-    exp4: "Academic Projects",
-    date1: "2024 - Present",
-    date2: "Jan - May 2024",
-    date3: "Apr - Jul 2023",
-    university: "University",
+    exp1: "React Developer",
+    exp2: "Web Developer",
+    exp3: "Full-Stack Developer",
+    exp4: "Wordpress Development",
+    date1: "2025 - Present",
+    date2: "2024 - 2025",
+    date3: "Jan - May 2024",
+    date4: "Apr - Jul 2023",
   },
 
   project: {
@@ -41,6 +41,7 @@ const en = {
     project6: "Website for Euresis",
     project7: "PWA for Refashion",
     project8: "Website for Le Petit Gourmand",
+    project9: "Titouan François Portfolio",
     badge: "New",
     cursor: "Coming soon",
   },
