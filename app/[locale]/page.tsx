@@ -1,5 +1,3 @@
-"use client";
-
 import NavBar from "@/components/navBar";
 import {
   ProfileBox,

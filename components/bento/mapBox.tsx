@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { useTheme } from "@/providers/theme-provider";
 import BentoBox from "../bentoBox";
@@ -15,9 +17,8 @@ export const MapBox = () => {
 `}
     >
       <div className="absolute inset-0">
-        {/* priority : cette carte est l'élément LCP, sans quoi elle part en lazy. */}
         <Image
-          src={isLightMode ? "/images/mapLight.png" : "/images/mapDark.png"}
+          src={isLightMode ? "/images/mapLight.jpg" : "/images/mapDark.jpg"}
           alt="Map of Paris"
           fill
           priority

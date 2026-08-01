@@ -17,8 +17,6 @@ const CustomCursor = () => {
     const handleMouseMove = (event: MouseEvent) => {
       x = event.clientX;
       y = event.clientY;
-      // Écriture directe dans le style : un state React relancerait un rendu à
-      // chaque pixel parcouru.
       if (frame) return;
       frame = requestAnimationFrame(() => {
         frame = 0;

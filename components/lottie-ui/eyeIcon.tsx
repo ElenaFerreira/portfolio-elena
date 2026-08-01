@@ -2,9 +2,8 @@
 
 import { useTheme } from "@/providers/theme-provider";
 import { useLottieIcon } from "./useLottieIcon";
-// Cette paire est nommée à l'inverse des autres icônes : Eye.json est la
-// variante blanche et EyeLight.json la noire. Le ternaire ci-dessous est donc
-// bien inversé par rapport à sunIcon / moonIcon / downloadIcon.
+// Paire nommée à l'inverse des autres : Eye.json est la variante blanche.
+// Le ternaire plus bas est donc volontairement inversé.
 import EyeAnimation from "./animations/eye/Eye.json";
 import EyeLightAnimation from "./animations/eye/EyeLight.json";
 

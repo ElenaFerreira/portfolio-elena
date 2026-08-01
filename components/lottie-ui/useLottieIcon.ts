@@ -3,11 +3,7 @@
 import { useEffect, useRef } from "react";
 import type { AnimationItem } from "lottie-web";
 
-/**
- * Charge une animation Lottie dans un conteneur et fournit les handlers de survol.
- * `animationData` doit être une référence stable (un module JSON importé), sinon
- * l'effet se relance à chaque rendu.
- */
+// `animationData` doit être une référence stable, sinon l'effet boucle.
 export function useLottieIcon(animationData: object) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const animationRef = useRef<AnimationItem | null>(null);

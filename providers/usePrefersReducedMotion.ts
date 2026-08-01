@@ -14,7 +14,6 @@ function getSnapshot(): boolean {
   return window.matchMedia(QUERY).matches;
 }
 
-// Défaut : mouvement autorisé, pour que le pire cas soit le comportement actuel.
 function getServerSnapshot(): boolean {
   return false;
 }

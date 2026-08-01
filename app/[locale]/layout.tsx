@@ -7,7 +7,8 @@ import ParticlesBackground from "@/components/particlesBackground";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import CustomCursor from "@/components/CustomCursor";
-import { SITE_URL, DEFAULT_LOCALE, OG_LOCALES, localeMetadata } from "@/locales/metadata";
+import { notFound } from "next/navigation";
+import { SITE_URL, DEFAULT_LOCALE, OG_LOCALES, localeMetadata, isLocale } from "@/locales/metadata";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -24,7 +25,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       languages: {
         en: "/en",
         fr: "/fr",
-        // L'anglais reste la langue de base pour les visiteurs sans version correspondante.
         "x-default": `/${DEFAULT_LOCALE}`,
       },
     },
@@ -35,7 +35,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       type: "website",
       locale: ogLocale,
       alternateLocale: Object.values(OG_LOCALES).filter((l) => l !== ogLocale),
-      // Doivent correspondre au fichier réel, sinon les aperçus de partage se déforment.
       images: [{ url: "/images/website.png", width: 1200, height: 592, alt: t.imageAlt }],
     },
     twitter: {
@@ -56,8 +55,9 @@ export default async function RootLayout({
 }>) {
   const resolvedParams = await params;
 
-  // Thème rendu côté serveur : ne pas repasser par un effet client, ça
-  // réintroduirait un flash de palette clair au changement de langue.
+  if (!isLocale(resolvedParams.locale)) notFound();
+
+  // Rendu serveur obligatoire : un effet client réintroduirait le flash de thème.
   const theme = parseTheme((await cookies()).get(THEME_COOKIE)?.value);
 
   return (

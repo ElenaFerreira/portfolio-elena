@@ -97,10 +97,10 @@
 
 @font-face {
   font-family: "Silka";
-  src: url("/fonts/silka.ttf") format("ttf");
   src: url("/fonts/silka.woff") format("woff");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 body {
@@ -179,13 +179,10 @@ body {
 }
 
 .timeline {
-  background: rgb(red, green, blue);
   background-image: var(--timeline);
 }
 
-/* MOUVEMENT RÉDUIT
-   Seules les animations en boucle sont coupées ; les transitions au survol sont
-   conservées. Le marquee et les particules passent par usePrefersReducedMotion. */
+/* Animations en boucle uniquement ; le marquee et les particules passent par JS. */
 @media (prefers-reduced-motion: reduce) {
   .animation-pulser,
   .animation-pulser-new-badge {

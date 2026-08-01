@@ -12,7 +12,7 @@ export const LanguageSelect = () => {
   return (
     <button
       onClick={() => changelocale(nextLocale)}
-      className="text-lg p-3 rounded-full bg-navbar hover:scale-110 cursor-pointer transition-transform duration-300 ease-out"
+      className="text-lg p-3 rounded-full bg-navbar hover:scale-110 cursor-pointer transition-transform duration-300 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
       aria-label={`Switch language to ${nextLocale}`}
     >
       <Image
@@ -21,7 +21,6 @@ export const LanguageSelect = () => {
         aria-hidden
         width={20}
         height={20}
-        // Dans la navbar, donc visible au chargement.
         loading="eager"
         className="size-5 hover:scale-110 cursor-pointer transition-transform duration-300 ease-out"
       />

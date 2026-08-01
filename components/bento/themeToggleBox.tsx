@@ -1,3 +1,5 @@
+"use client";
+
 import BentoBox from "../bentoBox";
 import MoonIcon from "../lottie-ui/moonIcon";
 import SunIcon from "../lottie-ui/sunIcon";

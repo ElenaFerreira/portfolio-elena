@@ -1,5 +1,5 @@
 // en
-export default {
+const en = {
   profile: {
     job: "Front-End Developer",
     about:
@@ -49,6 +49,7 @@ export default {
     all: "All",
     about: "About",
     work: "Work",
+    label: "Filter content",
   },
 
   languages: {
@@ -62,3 +63,5 @@ export default {
     imageAlt: "Elena Ferreira - Portfolio",
   },
 };
+
+export default en;

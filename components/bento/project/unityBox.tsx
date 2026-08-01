@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import BentoBox from "../../bentoBox";
 import { LinkIcon } from "@heroicons/react/24/outline";
@@ -20,7 +22,7 @@ export const UnityBox = () => {
           <div className="relative w-full aspect-video mb-4 rounded-lg overflow-hidden">
             <Image
               src="/images/project/project2.png"
-              alt="Project image"
+              alt={project_T("project2")}
               fill
               className="object-cover object-top hover:shadow-lg hover:scale-[1.01] cursor-pointer transition-all duration-300 ease-in-out"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

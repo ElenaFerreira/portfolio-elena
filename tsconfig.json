@@ -33,8 +33,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "components/bentoBox.jsx",
-    "app/page.jsx",
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [

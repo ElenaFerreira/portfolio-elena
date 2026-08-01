@@ -36,9 +36,7 @@ function getServerSnapshot(): number {
 function writeTab(index: number) {
   try {
     localStorage.setItem(STORAGE_KEY, index.toString());
-  } catch {
-    // storage indisponible
-  }
+  } catch {}
   listeners.forEach((listener) => listener());
 }
 
@@ -62,7 +60,6 @@ export const useTab = (): TabContextType => {
   return context;
 };
 
-// Index des onglets, dans l'ordre de menuItems (navBar).
 export const TAB_ALL = 0;
 export const TAB_ABOUT = 1;
 export const TAB_WORK = 2;

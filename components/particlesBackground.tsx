@@ -6,8 +6,7 @@ import { loadSlim } from "@tsparticles/slim";
 import type { Engine, ISourceOptions } from "@tsparticles/engine";
 import { usePrefersReducedMotion } from "@/providers/usePrefersReducedMotion";
 
-// ParticlesProvider exige une identité stable pour `init` : ne pas déplacer
-// cette fonction dans le composant, il lèverait une erreur.
+// Identité stable exigée par ParticlesProvider : ne pas déplacer dans le composant.
 const initEngine = async (engine: Engine) => {
   await loadSlim(engine);
 };

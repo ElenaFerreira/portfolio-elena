@@ -1,6 +1,6 @@
-import React from "react";
+import type { PropsWithChildren } from "react";
 
-const BentoBox = ({ children, className = "", onClick = null }) => {
+const BentoBox = ({ children, className = "" }: PropsWithChildren<{ className?: string }>) => {
   return (
     <div
       className={`
@@ -8,13 +8,12 @@ const BentoBox = ({ children, className = "", onClick = null }) => {
         hover:bg-background-hover
         border-bento-border
         border-2
-        rounded-3xl shadow-md 
+        rounded-3xl shadow-md
         transition-all duration-300 ease-in-out
         z-10
         col-span-12
         ${className}
       `}
-      onClick={onClick}
     >
       {children}
     </div>

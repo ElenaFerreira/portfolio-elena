@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import BentoBox from "../bentoBox";
 import { StarIcon } from "@heroicons/react/24/outline";

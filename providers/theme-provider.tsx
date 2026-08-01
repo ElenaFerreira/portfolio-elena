@@ -29,8 +29,7 @@ function writeTheme(theme: Theme) {
 }
 
 export const ThemeProvider = ({ initialTheme, children }: { initialTheme: Theme; children: ReactNode }) => {
-  // initialTheme doit servir de snapshot serveur, sinon les composants qui
-  // dépendent du thème rendent la mauvaise variante avant hydratation.
+  // Snapshot serveur obligatoire, sinon mauvaise variante avant hydratation.
   const getServerSnapshot = useCallback(() => initialTheme, [initialTheme]);
   const theme = useSyncExternalStore(subscribe, readTheme, getServerSnapshot);
 

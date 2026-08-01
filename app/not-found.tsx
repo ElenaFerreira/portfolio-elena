@@ -1,12 +1,9 @@
-// Next fournit déjà le <html>/<body> ici : ne pas en rendre un second, les
-// balises imbriquées cassent l'hydratation. globals.css est importé à la main,
-// cette page n'héritant d'aucun layout.
+// Next rend déjà le <html>/<body> : en ajouter un second casse l'hydratation.
 import Link from "next/link";
 import "./[locale]/globals.css";
 
 export default function NotFound() {
   return (
-    // data-theme sur le conteneur, faute de contrôle sur <html> ici.
     <div
       data-theme="dark"
       className="flex min-h-screen w-full flex-col items-center justify-center gap-4 bg-background px-6 text-center"

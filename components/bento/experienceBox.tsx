@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import BentoBox from "../bentoBox";
 import { useScopedI18n } from "@/locales/client";
@@ -14,7 +16,7 @@ export const ExperienceBox = () => {
       `}
     >
       <div className="mb-4">
-        <h3 className="text-sm text-subtitle">{experience_T("years")}</h3>
+        <p className="text-sm text-subtitle">{experience_T("years")}</p>
         <h2 className="text-2xl font-bold mb-1 text-title">{experience_T("experience")}</h2>
       </div>
       <div className="relative">

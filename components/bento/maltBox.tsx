@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import BentoBox from "../bentoBox";
 import { useTab, tabFadeClasses, TAB_ABOUT } from "@/providers/tabContext";

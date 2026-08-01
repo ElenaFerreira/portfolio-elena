@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import BentoBox from "../bentoBox";
@@ -7,7 +9,6 @@ import { useTheme } from "@/providers/theme-provider";
 import { useTab, tabFadeClasses, TAB_ABOUT } from "@/providers/tabContext";
 import { usePrefersReducedMotion } from "@/providers/usePrefersReducedMotion";
 
-// darkSrc seulement pour les logos ayant une variante lisible sur fond sombre.
 const TECH_LOGOS = [
   { name: "HTML", src: "/images/tech/html.png" },
   { name: "Next.js", src: "/images/tech/nextjs.svg", darkSrc: "/images/tech/nextjs-light.svg" },
@@ -73,7 +74,7 @@ export const SkillsBox = () => {
         </Marquee>
       </div>
       <div className="mb-4">
-        <h3 className="text-sm text-subtitle">{banner_T("stack")}</h3>
+        <p className="text-sm text-subtitle">{banner_T("stack")}</p>
         <h2 className="text-2xl font-bold mb-1 text-title">{banner_T("tech")}</h2>
         <ul className="sr-only">
           {TECH_LOGOS.map((tech) => (

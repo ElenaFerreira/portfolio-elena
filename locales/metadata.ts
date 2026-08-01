@@ -20,3 +20,7 @@ const METADATA: Record<string, typeof en.metadata> = {
 export function localeMetadata(locale: string) {
   return METADATA[locale] ?? METADATA[DEFAULT_LOCALE];
 }
+
+export function isLocale(value: string): value is (typeof LOCALES)[number] {
+  return (LOCALES as readonly string[]).includes(value);
+}
